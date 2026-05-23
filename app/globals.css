@@ -4,68 +4,53 @@
   --font-display: "Cabinet Grotesk Variable", sans-serif;
   --font-body: "Geist", sans-serif;
   --font-mono: "Geist Mono", monospace;
-
   --radius: 0.75rem;
 }
 
 @layer base {
   :root {
-    --background: oklch(0.13 0.015 250);
-    --background-subtle: oklch(0.1 0.012 250);
+    --background: #f6f5f2;
+    --card: #ffffff;
+    --card-elevated: #ffffff;
+    --card-foreground: #0f0f0f;
+    --popover: #ffffff;
+    --popover-foreground: #0f0f0f;
+    --border: rgba(0, 0, 0, 0.06);
+    --border-active: rgba(0, 0, 0, 0.12);
+    --input: rgba(0, 0, 0, 0.08);
+    --ring: #7c3aed;
+    --foreground: #0f0f0f;
+    --foreground-muted: #6b7280;
+    --foreground-dim: #9ca3af;
+    --muted: #f3f4f6;
+    --muted-foreground: #6b7280;
+    --secondary: #f3f4f6;
+    --secondary-foreground: #0f0f0f;
+    --accent: #f3f4f6;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+  }
 
+  .dark {
+    --background: oklch(0.13 0.015 250);
     --card: oklch(0.17 0.015 250);
     --card-elevated: oklch(0.2 0.015 250);
-    --card-muted: oklch(0.14 0.01 250);
+    --card-foreground: oklch(0.93 0.008 250);
     --popover: oklch(0.17 0.015 250);
-
+    --popover-foreground: oklch(0.93 0.008 250);
     --border: oklch(0.3 0.01 250 / 0.15);
     --border-active: oklch(0.5 0.03 250 / 0.3);
     --input: oklch(0.3 0.01 250 / 0.2);
     --ring: oklch(0.65 0.2 250);
-
     --foreground: oklch(0.93 0.008 250);
     --foreground-muted: oklch(0.6 0.01 250);
     --foreground-dim: oklch(0.45 0.008 250);
-    --card-foreground: oklch(0.93 0.008 250);
-    --popover-foreground: oklch(0.93 0.008 250);
     --muted: oklch(0.2 0.012 250);
     --muted-foreground: oklch(0.6 0.01 250);
-
-    --primary: oklch(0.95 0.005 250);
-    --primary-foreground: oklch(0.13 0.015 250);
     --secondary: oklch(0.2 0.015 250);
     --secondary-foreground: oklch(0.93 0.008 250);
-
-    --accent: oklch(0.2 0.015 250);
-    --accent-foreground: oklch(0.93 0.008 250);
-    --destructive: oklch(0.65 0.18 25);
-    --destructive-foreground: oklch(0.93 0.008 250);
-
-    --technique-ltm: oklch(0.72 0.15 160);
-    --technique-ltm-muted: oklch(0.72 0.15 160 / 0.12);
-    --technique-sc: oklch(0.72 0.15 280);
-    --technique-sc-muted: oklch(0.72 0.15 280 / 0.12);
-    --technique-cov: oklch(0.72 0.15 55);
-    --technique-cov-muted: oklch(0.72 0.15 55 / 0.12);
-    --technique-dt: oklch(0.72 0.15 340);
-    --technique-dt-muted: oklch(0.72 0.15 340 / 0.12);
-
-    --confidence-high: oklch(0.7 0.18 155);
-    --confidence-mid: oklch(0.75 0.15 85);
-    --confidence-low: oklch(0.65 0.18 25);
-    --confidence-zero: oklch(0.4 0.05 250);
-
-    --status-confirmed: oklch(0.7 0.18 155);
-    --status-contradicted: oklch(0.65 0.18 25);
-    --status-contested: oklch(0.75 0.15 85);
-    --status-majority: oklch(0.72 0.15 280);
-    --status-minority: oklch(0.5 0.08 280);
-    --status-pending: oklch(0.3 0.01 250);
-    --status-processing: oklch(0.5 0.03 250);
   }
-}
 
-@layer base {
   * {
     border-color: var(--border);
   }
@@ -100,18 +85,16 @@
     width: 4px;
     height: 4px;
   }
-
   ::-webkit-scrollbar-track {
     background: transparent;
   }
-
   ::-webkit-scrollbar-thumb {
     background: var(--border-active);
     border-radius: 2px;
   }
 
   ::selection {
-    background: oklch(0.72 0.15 250 / 0.25);
+    background: rgba(124, 58, 237, 0.15);
     color: var(--foreground);
   }
 
@@ -124,4 +107,38 @@
       transition-duration: 0.01ms !important;
     }
   }
+}
+.newsreader-400 {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playwrite-gb-s-400 {
+  font-family: "Playwrite GB S", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.simonetta-regular {
+  font-family: "Simonetta", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes sonar-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(52, 211, 153, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+  }
+}
+.sonar-pulse {
+  animation: sonar-pulse 5s ease-out infinite;
 }
