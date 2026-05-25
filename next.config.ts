@@ -1,9 +1,10 @@
-import { IconDisabled } from "@tabler/icons-react";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  devIndicators:false,
+  devIndicators: false,
+  experimental: {
+    optimizePackageImports: ["@tabler/icons-react"],
+  },
 };
 
 export default nextConfig;

@@ -181,7 +181,7 @@ const AccordionGroup = forwardRef<HTMLDivElement, AccordionGroupProps>(
         if (sp.onValueChange) sp.onValueChange(value);
         else setInternalSingleValue(value);
       },
-      [singleOnValueChange]
+      [singleOnValueChange] // eslint-disable-line react-hooks/exhaustive-deps
     );
 
     const handleMultipleValueChange = useCallback(
@@ -190,7 +190,7 @@ const AccordionGroup = forwardRef<HTMLDivElement, AccordionGroupProps>(
         if (mp.onValueChange) mp.onValueChange(value);
         else setInternalMultipleValue(value);
       },
-      [multipleOnValueChange]
+      [multipleOnValueChange] // eslint-disable-line react-hooks/exhaustive-deps
     );
 
     const toggleValue = useCallback(
@@ -204,6 +204,7 @@ const AccordionGroup = forwardRef<HTMLDivElement, AccordionGroupProps>(
           handleSingleValueChange("");
         }
       },
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       [
         type,
         handleSingleValueChange,
@@ -378,6 +379,7 @@ const AccordionGroup = forwardRef<HTMLDivElement, AccordionGroupProps>(
             <AnimatePresence>
               {activeRect && (
                 <motion.div
+                  // eslint-disable-next-line react-hooks/refs
                   key={sessionRef.current}
                   className={`absolute ${shape.bg} bg-hover pointer-events-none`}
                   initial={{
@@ -716,6 +718,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
               animate={{ rotate: isOpen ? 90 : 0 }}
               transition={springs.fast}
             >
+              {/* eslint-disable-next-line react-hooks/component-in-render */}
               <ChevronRight
                 size={16}
                 strokeWidth={isOpen || isActive ? 2 : 1.5}

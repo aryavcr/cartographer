@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  useRef,
   forwardRef,
   type ReactNode,
   type HTMLAttributes,
@@ -131,8 +130,8 @@ function ThinkingStep({
   label,
   description,
   status = "complete",
-  index,
-  delay = 0,
+  index: _index,
+  delay: _delay = 0,
   isLast = false,
   children,
   className,
@@ -164,6 +163,7 @@ function ThinkingStep({
             <div className="flex flex-col items-center shrink-0 w-[14px]">
               <div className="pt-0.5">
                 {showIcon ? (
+                  // eslint-disable-next-line react-hooks/component-in-render
                   <Icon
                     size={14}
                     strokeWidth={1.5}

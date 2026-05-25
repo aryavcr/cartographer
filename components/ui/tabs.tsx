@@ -113,7 +113,7 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(
           if (idx !== -1) onSelect(idx);
         }
       },
-      [onValueChange, onSelect, valueOrder]
+      [onValueChange, onSelect, valueOrder] // eslint-disable-line react-hooks/exhaustive-deps
     );
 
     return (
@@ -169,7 +169,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
     // Report value order up to Tabs root
     useLayoutEffect(() => {
       setValueOrder?.(values);
-    }, [setValueOrder, valueOrderKey]);
+    }, [setValueOrder, valueOrderKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Proximity hover
     const {
@@ -224,6 +224,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
       selectedValue !== undefined ? values.indexOf(selectedValue) : -1;
 
     useEffect(() => {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setOptimisticIdx(selectedIdx >= 0 ? selectedIdx : null);
     }, [selectedIdx]);
 
@@ -336,6 +337,7 @@ const TabsList = forwardRef<HTMLDivElement, TabsListProps>(
                   opacity: 0.4,
                 }}
                 exit={
+                  // eslint-disable-next-line react-hooks/refs
                   !isMouseInside.current && selectedRect
                     ? {
                         left: selectedRect.left,

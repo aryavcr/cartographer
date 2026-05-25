@@ -7,7 +7,7 @@ import { useIcon } from "@/lib/icon-context";
 import { fontWeights } from "@/lib/font-weight";
 import { useShape } from "@/lib/shape-context";
 import { springs } from "@/lib/springs";
-import { Tooltip } from "@/components/tooltip";
+import { Tooltip } from "@/components/ui/tooltip";
 
 type InputCopyVariant = "icon" | "button";
 type InputCopyAlign = "right" | "left";
@@ -89,7 +89,7 @@ const InputCopy = forwardRef<HTMLDivElement, InputCopyProps>(
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={springs.fast}
-            className="flex items-center justify-center [&_svg]:stroke-[1.5] [&_svg]:transition-[stroke-width] [&_svg]:duration-80 group-hover:[&_svg]:stroke-[2]"
+            className="flex items-center justify-center [&_svg]:stroke-[1.5] [&_svg]:transition-[stroke-width] [&_svg]:duration-80 group-hover:[&_svg]:stroke-2"
           >
             <svg
               width={14}
@@ -119,7 +119,7 @@ const InputCopy = forwardRef<HTMLDivElement, InputCopyProps>(
             transition={springs.fast}
             className="flex items-center justify-center"
           >
-            <CopyIcon size={14} strokeWidth={1.5} className="transition-[stroke-width] duration-80 group-hover:stroke-[2]" />
+            <CopyIcon size={14} strokeWidth={1.5} className="transition-[stroke-width] duration-80 group-hover:stroke-2" />
           </motion.span>
         )}
       </AnimatePresence>
@@ -179,7 +179,7 @@ const InputCopy = forwardRef<HTMLDivElement, InputCopyProps>(
               transition={springs.fast}
             >
               <span className="flex items-center justify-center">
-                <CopyIcon size={14} strokeWidth={1.5} className="transition-[stroke-width] duration-80 group-hover:stroke-[2]" />
+                <CopyIcon size={14} strokeWidth={1.5} className="transition-[stroke-width] duration-80 group-hover:stroke-2" />
               </span>
               <span className="select-none inline-grid text-left">
                 <span className="col-start-1 row-start-1 invisible" aria-hidden="true">Copied</span>
