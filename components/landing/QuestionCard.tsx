@@ -53,18 +53,19 @@ export function QuestionCard({
         }}
       />
       {/*corner brackets*/}
-      <div
-        className={`absolute top-0 left-0 w-2.5 h-2.5 border-t border-l pointer-events-none z-10 transition-colors duration-200 ${isSelected ? "border-white" : "border-pink-300/80"}`}
-      />
-      <div
-        className={`absolute top-0 right-0 w-2.5 h-2.5 border-t border-r pointer-events-none z-10 transition-colors duration-200 ${isSelected ? "border-white" : "border-pink-300/80"}`}
-      />
-      <div
-        className={`absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l pointer-events-none z-10 transition-colors duration-200 ${isSelected ? "border-white" : "border-pink-300/80"}`}
-      />
-      <div
-        className={`absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r pointer-events-none z-10 transition-colors duration-200 ${isSelected ? "border-white" : "border-pink-300/80"}`}
-      />
+      {(
+        [
+          "top-0 left-0 border-t border-l",
+          "top-0 right-0 border-t border-r",
+          "bottom-0 left-0 border-b border-l",
+          "bottom-0 right-0 border-b border-r",
+        ] as const
+      ).map((pos) => (
+        <div
+          key={pos}
+          className={`absolute w-2.5 h-2.5 pointer-events-none z-10 transition-colors duration-200 ${pos} ${isSelected ? "border-white" : "border-pink-300/80"}`}
+        />
+      ))}
       <div className="flex items-center justify-between shrink-0 pt-3 px-3.5">
         <span className="font-mono text-[11px] font-medium uppercase tracking-widest text-white/35">
           {diffLabel}
