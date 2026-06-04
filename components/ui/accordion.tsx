@@ -718,7 +718,7 @@ const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
               animate={{ rotate: isOpen ? 90 : 0 }}
               transition={springs.fast}
             >
-              {/* eslint-disable-next-line react-hooks/component-in-render */}
+              {/* eslint-disable-next-line react-hooks/static-components */}
               <ChevronRight
                 size={16}
                 strokeWidth={isOpen || isActive ? 2 : 1.5}

@@ -91,6 +91,7 @@ function Tooltip({
   const portalContainer = useContext(TooltipPortalContainerContext);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (open) setMounted(true);
   }, [open]);
 

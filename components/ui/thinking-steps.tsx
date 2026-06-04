@@ -31,7 +31,6 @@ interface ThinkingStepsProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const ThinkingSteps = forwardRef<HTMLDivElement, ThinkingStepsProps>(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ defaultOpen = true, open, onOpenChange, children, className, defaultValue: _, ...props }, ref) => {
     const controlled = open !== undefined;
     return (
@@ -163,7 +162,7 @@ function ThinkingStep({
             <div className="flex flex-col items-center shrink-0 w-[14px]">
               <div className="pt-0.5">
                 {showIcon ? (
-                  // eslint-disable-next-line react-hooks/component-in-render
+                  // eslint-disable-next-line react-hooks/static-components
                   <Icon
                     size={14}
                     strokeWidth={1.5}
@@ -332,6 +331,7 @@ function ThinkingStepImage({ src, alt = "", caption, delay = 0, className }: Thi
         filter: { duration: 0.15, delay },
       }}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
