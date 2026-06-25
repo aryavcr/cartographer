@@ -10,9 +10,11 @@ import {
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { springs } from "@/lib/springs";
-import { fontWeights } from "@/lib/font-weight";
-import { useShape } from "@/lib/shape-context";
+
+// Inlined defaults (previously imported from lib/springs, lib/font-weight, lib/shape-context)
+const SPRING_FAST = { type: "spring" as const, duration: 0.08, bounce: 0 };
+const FW_MEDIUM = "'wght' 450";
+const SHAPE_BG = "rounded-[20px]";
 
 // ---------------------------------------------------------------------------
 // Portal container context
@@ -87,7 +89,6 @@ function Tooltip({
   const [internalOpen, setInternalOpen] = useState(false);
   const open = forceOpen !== undefined ? forceOpen : internalOpen;
   const [mounted, setMounted] = useState(false);
-  const shape = useShape();
   const portalContainer = useContext(TooltipPortalContainerContext);
 
   useEffect(() => {
@@ -118,17 +119,17 @@ function Tooltip({
               <motion.div
                 className={cn(
                   "bg-foreground text-background text-[12px] px-2 py-1",
-                  shape.bg,
+                  SHAPE_BG,
                   className
                 )}
-                style={{ fontVariationSettings: fontWeights.medium }}
+                style={{ fontVariationSettings: FW_MEDIUM }}
                 initial={{ opacity: 0, ...slideOffset }}
                 animate={{
                   opacity: open ? 1 : 0,
                   x: 0,
                   y: 0,
                 }}
-                transition={open ? springs.fast : { duration: 0.1 }}
+                transition={open ? SPRING_FAST : { duration: 0.1 }}
                 onAnimationComplete={handleExitComplete}
               >
                 {content}
